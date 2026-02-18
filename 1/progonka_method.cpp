@@ -4,7 +4,7 @@
 #include <stdexcept>
 using namespace std;
 
-class three_matrix(){
+class three_matrix{
     private:
     vector<double> c;
     vector<double> a;
@@ -21,31 +21,32 @@ class three_matrix(){
     }
 
     vector<double> solve(vector<double> d){
+        int n = b.size();
         if(d.size() != n){
             throw invalid_argument("Размер вектора d не совпадает с размером матрицы!");
         }
-        int n = d.size();
+        
         vector<double> x(n);
         vector<double> p(n), q(n);
         p[0] = -c[0]/b[0];
         q[0] = d[0]/b[0];
         //Прямой метод
-        for (int i=1; i<n; i++){
+        for (int i=0; i<n-1; i++){
             p[i+1] = -c[i]/(b[i]+a[i]*p[i]);
             q[i+1] = (d[i] - a[i]*q[i])/(b[i]+a[i]*p[i]);
         }
         //Обратный метод
-        x[n-1] = (d[n-1] - a[n-1] * q[n-1]);
+        x[n-1] = (d[n-1] - a[n-1] * q[n-1])/(a[n-1]*p[n-1] + b[n-1]);
 
         for(int i = n-2; i >= 0; i--){
             x[i] = p[i+1] * x[i+1] + q[i+1];
         }
-        cout << x.size() << endl;
         return x;
 
-    }
+    }    
+};
 
-    void test_simple_system(){
+void test_simple_system(){
         cout << "\n=== Тест 1: Простая система ===" << endl;
         vector<double> a = {0, -1, -1};
         vector<double> b = {2, 2, 2};
@@ -61,9 +62,9 @@ class three_matrix(){
         } else {
             cout << "Тест не пройден" << endl;
         }
-    }
-    
-    void test_identity_system(){
+}
+
+void test_identity_system(){
         cout << "\n=== Тест 2: Единичная система ===" << endl;
         vector<double> a = {0, 0, 0};
         vector<double> b = {1, 1, 1};
@@ -79,9 +80,7 @@ class three_matrix(){
         } else {
             cout << "Тест не пройден" << endl;
         }
-    }
-};
-
+}
 
 int main(){
     try {

@@ -116,6 +116,43 @@ depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+#=============================================================================
+# Target rules for targets named progonka
+
+# Build rule for target.
+progonka: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 progonka
+.PHONY : progonka
+
+# fast build rule for target.
+progonka/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/progonka.dir/build.make CMakeFiles/progonka.dir/build
+.PHONY : progonka/fast
+
+1/progonka_method.o: 1/progonka_method.cpp.o
+.PHONY : 1/progonka_method.o
+
+# target to build an object file
+1/progonka_method.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/progonka.dir/build.make CMakeFiles/progonka.dir/1/progonka_method.cpp.o
+.PHONY : 1/progonka_method.cpp.o
+
+1/progonka_method.i: 1/progonka_method.cpp.i
+.PHONY : 1/progonka_method.i
+
+# target to preprocess a source file
+1/progonka_method.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/progonka.dir/build.make CMakeFiles/progonka.dir/1/progonka_method.cpp.i
+.PHONY : 1/progonka_method.cpp.i
+
+1/progonka_method.s: 1/progonka_method.cpp.s
+.PHONY : 1/progonka_method.s
+
+# target to generate assembly for a file
+1/progonka_method.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/progonka.dir/build.make CMakeFiles/progonka.dir/1/progonka_method.cpp.s
+.PHONY : 1/progonka_method.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -124,6 +161,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... progonka"
+	@echo "... 1/progonka_method.o"
+	@echo "... 1/progonka_method.i"
+	@echo "... 1/progonka_method.s"
 .PHONY : help
 
 

@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/progonka.dir/link.d CMakeFiles/progonka.dir/1/progonka_method.cpp.o -o progonka

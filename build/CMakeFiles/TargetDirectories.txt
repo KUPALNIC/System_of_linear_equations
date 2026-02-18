@@ -1,2 +1,3 @@
+/home/kupalnic/4th_sem/System_of_linear_equations/build/CMakeFiles/progonka.dir
 /home/kupalnic/4th_sem/System_of_linear_equations/build/CMakeFiles/edit_cache.dir
 /home/kupalnic/4th_sem/System_of_linear_equations/build/CMakeFiles/rebuild_cache.dir

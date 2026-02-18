@@ -63,11 +63,11 @@ CMAKE_BINARY_DIR = /home/kupalnic/4th_sem/System_of_linear_equations/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all:
+all: CMakeFiles/progonka.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
-codegen:
+codegen: CMakeFiles/progonka.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -75,8 +75,40 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean:
+clean: CMakeFiles/progonka.dir/clean
 .PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/progonka.dir
+
+# All Build rule for target.
+CMakeFiles/progonka.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/progonka.dir/build.make CMakeFiles/progonka.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/progonka.dir/build.make CMakeFiles/progonka.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/kupalnic/4th_sem/System_of_linear_equations/build/CMakeFiles --progress-num=1,2 "Built target progonka"
+.PHONY : CMakeFiles/progonka.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/progonka.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kupalnic/4th_sem/System_of_linear_equations/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/progonka.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kupalnic/4th_sem/System_of_linear_equations/build/CMakeFiles 0
+.PHONY : CMakeFiles/progonka.dir/rule
+
+# Convenience name for target.
+progonka: CMakeFiles/progonka.dir/rule
+.PHONY : progonka
+
+# codegen rule for target.
+CMakeFiles/progonka.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/progonka.dir/build.make CMakeFiles/progonka.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/kupalnic/4th_sem/System_of_linear_equations/build/CMakeFiles --progress-num=1,2 "Finished codegen for target progonka"
+.PHONY : CMakeFiles/progonka.dir/codegen
+
+# clean rule for target.
+CMakeFiles/progonka.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/progonka.dir/build.make CMakeFiles/progonka.dir/clean
+.PHONY : CMakeFiles/progonka.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
