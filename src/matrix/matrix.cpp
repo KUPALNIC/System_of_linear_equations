@@ -1,23 +1,48 @@
-#include <stdexcept>
-#include <vector>
 #include "matrix.hpp"
 
-class Matrix{
-    private:
-        int  nx_;
-        int ny_;
-        std::vector<double> m_;
-        
-        public:
-            Matrix(int rows, int cols, const std::vector<double>& matrix): nx_(rows), ny_(cols){
-                if (matrix.size() != rows*cols){
-                    throw std::invalid_argument("Некорректный размер массива")
-                }
+Matrix::Matrix(const std::vector<std::vector<double>>& data_) {    
+    rows_count = data_.size();
+    cols_count = data_[0].size();
+    data = data_;
+}
 
-                m_ = matrix
-            }
+double& Matrix::operator()(int i, int j) {
+    return data[i][j];
+}
 
-            double operator() ( int i, int j) const {
-                return m_[i*ny_ + j];
-            } 
-};
+double Matrix::operator()(int i, int j) const {
+    return data[i][j];
+}
+
+// Сумма матриц
+Matrix Matrix::operator+(const Matrix& other) const {
+    std::vector<std::vector<double>> result(rows_count, std::vector<double>(cols_count));
+    for (int i = 0; i < rows_count; ++i) {
+        for (int j = 0; j < cols_count; ++j) {
+            result[i][j] = data[i][j] + other(i, j);
+        }
+    }
+    return Matrix(result);
+}
+
+// Умножение матрицы на вектор
+std::vector<double> Matrix::operator*(const std::vector<double>& vec) const {
+    std::vector<double> result(rows_count, 0.0);
+    for (int i = 0; i < rows_count; ++i) {
+        for (int j = 0; j < cols_count; ++j) {
+            result[i] += data[i][j] * vec[j];
+        }
+    }
+    return result;
+}
+
+// Умножение матрицы на скаляр
+Matrix Matrix::operator*(double scalar) const {
+    std::vector<std::vector<double>> result(rows_count, std::vector<double>(cols_count));
+    for (int i = 0; i < rows_count; ++i) {
+        for (int j = 0; j < cols_count; ++j) {
+            result[i][j] = data[i][j] * scalar;
+        }
+    }
+    return Matrix(result);
+}

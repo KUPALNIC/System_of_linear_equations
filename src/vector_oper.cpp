@@ -1,6 +1,4 @@
-#pragma once
 #include <vector>
-#include <stdexcept>
 #include <cmath>
 
 inline std::vector<double> operator+(const std::vector<double>& a, const std::vector<double>& b) {
@@ -12,9 +10,6 @@ inline std::vector<double> operator+(const std::vector<double>& a, const std::ve
 }
 
 inline double operator*(const std::vector<double>& a, const std::vector<double>& b) {
-    if (a.size() != b.size()) {
-        throw std::invalid_argument("Размеры векторов не совпадают");
-    }
     double sum = 0.0;
     for (size_t i = 0; i < a.size(); ++i) {
         sum += a[i] * b[i];

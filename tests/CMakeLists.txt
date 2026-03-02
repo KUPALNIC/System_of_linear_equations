@@ -5,6 +5,7 @@ set(LIBS ${PROJECT_NAME} GTest::gtest_main)
 
 set(TEST_SOURCE
     test_tomas.cpp
+    test_csr.cpp
 )
 
 foreach(TEST_FILE IN LISTS TEST_SOURCES)

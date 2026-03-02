@@ -2,8 +2,8 @@
 #include <algorithm>
 #include <stdexcept>
 
-CSR::CSR(const std::map<std::tuple<int, int>, double>& dok, int rows, int cols) 
-    : rows_count(rows), cols_count(cols) {
+CSR::CSR(const std::map<std::tuple<int, int>, double>& dok, int rows_, int cols_) 
+    : rows_count(rows_), cols_count(cols_) {
     this->rows.resize(rows_count + 1, 0);
     std::vector<std::tuple<int, int, double>> sorted_elements;
 
