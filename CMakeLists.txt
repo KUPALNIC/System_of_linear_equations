@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 project(SystemOfLinearEquations)
 
-options(WITH_TESTS "enable tests" OFF)
+option(WITH_TESTS "enable tests" OFF)
 
 add_library(${PROJECT_NAME})
 

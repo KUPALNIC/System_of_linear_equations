@@ -1,5 +1,4 @@
-#ifndef TOMAS_HPP
-#define TOMAS_HPP
+#pragma once
 
 #include <vector>
 
@@ -17,5 +16,3 @@ public:
     
     bool is_diagonally_dominant() const;
 };
-
-#endif
