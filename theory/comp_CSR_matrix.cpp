@@ -22,18 +22,18 @@ void run_benchmarks(const std::string& filename) {
     for (int n : sizes) {        
         for (double s : sparsities) {
             std::map<std::tuple<int, int>, double> dok;
-            std::vector<std::vector<double>> matrix_data(n, std::vector<double>(n, 0.0));
+            std::vector<double> matrix_data(n*n, 0.0);
             for (int i = 0; i < n; ++i) {
                 for (int j = 0; j < n; ++j) {
                     if (dist(gen) > s) {
                         double v = 1.0; 
                         dok[{i, j}] = v;
-                        matrix_data[i][j] = v;
+                        matrix_data[i*n + j] = v;
                     }
                 }
             }
 
-            Matrix matrix_mat(matrix_data);
+            Matrix matrix_mat(matrix_data, n, n);
             CSR csr_mat(dok, n, n);
             std::vector<double> x(n, 1.0);
 

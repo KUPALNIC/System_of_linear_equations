@@ -4,12 +4,13 @@
 
 class Matrix {
 private:
-    std::vector<std::vector<double>> data;
+    std::vector<double> data;
     int rows_count;
     int cols_count;
 
 public:
-    Matrix(const std::vector<std::vector<double>>& data);
+    Matrix(const std::vector<double>& data_, int r, int c);
+    Matrix(size_t r, size_t c);
 
     double operator()(int i, int j) const;
     double& operator()(int i, int j);
@@ -25,4 +26,8 @@ public:
     
     // Умножение матрицы на скаляр
     Matrix operator*(double scalar) const;
+
+    //Транспонирование
+    Matrix transpose() const;
+
 };

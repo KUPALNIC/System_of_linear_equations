@@ -11,3 +11,6 @@ if (WITH_TESTS)
     enable_testing()
     add_subdirectory(tests)
 endif()
+
+add_executable(benchmark_run theory/comp_CSR_matrix.cpp src/CSR/csr.cpp src/matrix/matrix.cpp)
+target_include_directories(benchmark_run PRIVATE src/)
