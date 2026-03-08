@@ -1,6 +1,8 @@
 target_sources(${PROJECT_NAME} PRIVATE
     tomas/tomas.cpp
     matrix/matrix.cpp
+    matrix/QR/qr.cpp
+    matrix/QR/qr_solve.cpp
     CSR/csr.cpp
     vector_oper.cpp
 )
