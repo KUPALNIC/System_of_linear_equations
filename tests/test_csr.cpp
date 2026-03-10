@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include "../CSR.h"
-#include "../vector_oper.h"
+#include "../src/CSR/csr.hpp"
+#include "../src/vector_oper.cpp"
 #include <map>
 #include <tuple>
 #include <vector>

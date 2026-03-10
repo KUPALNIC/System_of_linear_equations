@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 
-#include "../matrix/matrix.hpp"
-#include "../matrix/QR/qr_solve.hpp"
+#include "../src/matrix/matrix.hpp"
+#include "../src/matrix/QR/qr_solve.hpp"
 
 #include <vector>
 #include <cmath>

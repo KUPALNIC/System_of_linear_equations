@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include <vector>
 #include <cmath>
-#include "../src/tomas.hpp"
+#include "../src/tomas/tomas.hpp"
 
 // Тест 1: Простая система с известным решением
 TEST(ThreeMatrixTest, SimpleSystem) {
@@ -75,7 +75,7 @@ TEST(ThreeMatrixTest, LargerSystem) {
 // Тест 6: Система размером 2x2
 TEST(ThreeMatrixTest, TwoByTwoSystem) {
     std::vector<double> a = {0, -2};
-    std::vector<double> b = {4, 4};
+    std::vector<double> b = {4, 3};
     std::vector<double> c = {-2, 0};
     std::vector<double> d = {2, 2};
     
@@ -83,8 +83,8 @@ TEST(ThreeMatrixTest, TwoByTwoSystem) {
     std::vector<double> solution = matrix.solve(d);
     
     EXPECT_EQ(solution.size(), 2);
-    EXPECT_NEAR(solution[0], 0.5, 1e-6);
-    EXPECT_NEAR(solution[1], 0.5, 1e-6);
+    EXPECT_NEAR(solution[0], 1.25, 1e-6);
+    EXPECT_NEAR(solution[1], 1.5, 1e-6);
 }
 
 // Тест 7: Система с большими числами
@@ -106,17 +106,17 @@ TEST(ThreeMatrixTest, LargeNumbers) {
 // Тест 8: Система с отрицательными значениями
 TEST(ThreeMatrixTest, NegativeValues) {
     std::vector<double> a = {0, -1, -1};
-    std::vector<double> b = {2, 2, 2};
+    std::vector<double> b = {2, 5, 2};
     std::vector<double> c = {-1, -1, 0};
-    std::vector<double> d = {-4, -2, -4};
+    std::vector<double> d = {-4, -4, -4};
     
     three_matrix matrix(a, b, c);
     std::vector<double> solution = matrix.solve(d);
     
     EXPECT_EQ(solution.size(), 3);
-    EXPECT_NEAR(solution[0], -2.0, 1e-6);
+    EXPECT_NEAR(solution[0], -3.0, 1e-6);
     EXPECT_NEAR(solution[1], -2.0, 1e-6);
-    EXPECT_NEAR(solution[2], -2.0, 1e-6);
+    EXPECT_NEAR(solution[2], -3.0, 1e-6);
 }
 
 // Тест 9: Проверка диагонального преобладания - матрица с преобладанием

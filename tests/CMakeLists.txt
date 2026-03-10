@@ -3,9 +3,10 @@ include(GoogleTest)
 
 set(LIBS ${PROJECT_NAME} GTest::gtest_main)
 
-set(TEST_SOURCE
+set(TEST_SOURCES
     test_tomas.cpp
     test_csr.cpp
+    test_qr.cpp
 )
 
 foreach(TEST_FILE IN LISTS TEST_SOURCES)
