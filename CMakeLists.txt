@@ -13,4 +13,13 @@ if (WITH_TESTS)
 endif()
 
 add_executable(benchmark_run theory/comp_CSR_matrix.cpp src/CSR/csr.cpp src/matrix/matrix.cpp)
+add_executable(benchmark_4
+    theory/Solvers/solvers_bench.cpp 
+    src/CSR/csr.cpp 
+    src/matrix/matrix.cpp
+    src/Solvers/GaussSeidelSolver.cpp
+    src/Solvers/JacobiSolver.cpp
+    src/Solvers/SimpleIterationSolver.cpp
+)
 target_include_directories(benchmark_run PRIVATE src/)
+target_include_directories(benchmark_4 PRIVATE src/)
