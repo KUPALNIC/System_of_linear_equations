@@ -7,6 +7,9 @@ set(TEST_SOURCES
     test_tomas.cpp
     test_csr.cpp
     test_qr.cpp
+    test_Jacobi.cpp
+    test_GaussSeidel.cpp
+    test_SimpleIter.cpp
 )
 
 foreach(TEST_FILE IN LISTS TEST_SOURCES)

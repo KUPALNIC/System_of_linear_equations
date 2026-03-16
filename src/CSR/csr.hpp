@@ -19,6 +19,9 @@ public:
 
     int getRows() const { return rows_count; }
     int getCols() const { return cols_count; }
+    std::vector<int> Rows() const {return rows;}
+    std::vector<int> Cols() const {return cols;}
+    std::vector<double> Values() const {return values;}
     int getNonZeroCount() const { return values.size(); }
 
     // Умножение матрицы на вектор

@@ -5,6 +5,9 @@ target_sources(${PROJECT_NAME} PRIVATE
     matrix/QR/qr_solve.cpp
     CSR/csr.cpp
     vector_oper.cpp
+    Solvers/JacobiSolver.cpp
+    Solvers/GaussSeidelSolver.cpp
+    Solvers/SimpleIterationSolver.cpp
 )
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
