@@ -5,11 +5,12 @@
 #include <fstream>
 #include <map>
 
-#include "../src//matrix/matrix.hpp"
+#include "../src/matrix/matrix.hpp"
 #include "../src/CSR/csr.hpp"
 #include "../src/Solvers/JacobiSolver.hpp"
 #include "../src/Solvers/SimpleIterationSolver.hpp"
 #include "../src/Solvers/GaussSeidelSolver.hpp"
+#include "../src/Solvers/ChebishevIterationSolver.cpp"
 
 double calculate_residual(const CSR& A, const std::vector<double>& x, const std::vector<double>& b) {
     std::vector<double> Ax = A * x;
@@ -22,11 +23,11 @@ double calculate_residual(const CSR& A, const std::vector<double>& x, const std:
 }
 
 int main() {
-    int N = 400; // Размер матрицы
+    int N = 400; 
     std::map<std::tuple<int, int>, double> dok;
     std::vector<double> b(N, 1.0);
     double eps = 1e-15; 
-    int total_iters = 325; 
+    int total_iters = 300; 
 
     // Генерация матрицы с диагональным преобладанием
     for (int i = 0; i < N; ++i) {
@@ -35,6 +36,9 @@ int main() {
         if (i < N - 1) dok[{i, i + 1}] = -1.0;
     }
     CSR A(dok, N, N);
+
+    double l_max = findMaxEigenvalue(A); 
+    double l_min = 2.5 - 2.0 * std::cos(M_PI / (N + 1)); 
 
     std::ofstream out("convergence.csv");
     out << "Iteration,Method,Time_ms,Residual\n";
@@ -61,6 +65,13 @@ int main() {
         end = std::chrono::high_resolution_clock::now();
         double t_si = std::chrono::duration<double, std::milli>(end - start).count();
         out << k << ",SimpleIteration," << t_si << "," << calculate_residual(A, x_si, b) << "\n";
+
+        // 4. Chebyshev
+        start = std::chrono::high_resolution_clock::now();
+        std::vector<double> x_ch = ChebyshevIterationSolver(A, b, l_min, l_max, eps, k, 8);
+        end = std::chrono::high_resolution_clock::now();
+        double t_ch = std::chrono::duration<double, std::milli>(end - start).count();
+        out << k << ",Chebyshev," << t_ch << "," << calculate_residual(A, x_ch, b) << "\n";
 
         if (k % 50 == 0) std::cout << "Processed " << k << " iterations..." << std::endl;
     }

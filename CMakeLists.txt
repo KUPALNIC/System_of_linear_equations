@@ -20,6 +20,11 @@ add_executable(benchmark_4
     src/Solvers/GaussSeidelSolver.cpp
     src/Solvers/JacobiSolver.cpp
     src/Solvers/SimpleIterationSolver.cpp
+   
 )
+add_executable(test_1 theory/test_1.cpp 
+    src/matrix/matrix.cpp
+    src/CSR/csr.cpp
+    src/Solvers/JacobiSolver.cpp)
 target_include_directories(benchmark_run PRIVATE src/)
 target_include_directories(benchmark_4 PRIVATE src/)

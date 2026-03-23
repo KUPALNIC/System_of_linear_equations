@@ -10,6 +10,7 @@ set(TEST_SOURCES
     test_Jacobi.cpp
     test_GaussSeidel.cpp
     test_SimpleIter.cpp
+    test_ChebishevIter.cpp
 )
 
 foreach(TEST_FILE IN LISTS TEST_SOURCES)
