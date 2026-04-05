@@ -11,6 +11,7 @@ set(TEST_SOURCES
     test_GaussSeidel.cpp
     test_SimpleIter.cpp
     test_ChebishevIter.cpp
+    test_chebyshev_accel.cpp
 )
 
 foreach(TEST_FILE IN LISTS TEST_SOURCES)
